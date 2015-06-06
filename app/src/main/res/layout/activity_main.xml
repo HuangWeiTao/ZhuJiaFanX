@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Parent linear layout with vertical orientation -->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<TextView android:id="@+id/label" android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" android:text="Email"-->
+        <!--android:typeface="sans"-->
+        <!--android:textStyle="italic|bold"-->
+        <!--android:drawableRight="@drawable/ic_action_accept"-->
+        <!--android:textSize="18sp"/>-->
+
+    <!--<EditText android:id="@+id/inputEmail" android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/label"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignRight="@id/label"-->
+
+        <!--/>-->
+
+    <!--<Button android:id="@+id/btnLogin" android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" android:layout_below="@id/inputEmail"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_marginLeft="6dp"-->
+        <!--android:paddingLeft="30dp"-->
+        <!--android:text="Login" />-->
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/inputEmail"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:text="big"-->
+        <!--/>-->
+    <!--<TextView-->
+        <!--android:text="dfsfdsafsfsafsafsadfdsafsdadfdsafsafsafsadfsafsdfdsafsafsafdsafsafsafsafsafasrwerwrwrwrwrwrwrwerfsfs"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/btnLogin"-->
+        <!--android:ellipsize="marquee"-->
+        <!--android:singleLine="true"-->
+        <!--android:focusableInTouchMode="true"-->
+        <!--android:focusable="true"-->
+        <!--android:clickable="true"-->
+        <!--android:id="@+id/longText"-->
+        <!--android:shadowColor="#00ccff"-->
+        <!--android:shadowRadius="1.5"-->
+        <!--android:shadowDx="1"-->
+        <!--android:shadowDy="1"-->
+
+        <!--/>-->
+<!--</RelativeLayout>-->
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="?android:attr/listPreferredItemHeight"-->
+    <!--android:padding="6dip">-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/icon"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="fill_parent"-->
+        <!--android:layout_marginRight="6dip"-->
+        <!--android:src="@drawable/ic_action_accept" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_toRightOf="@+id/icon"-->
+            <!--android:paddingTop="4dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:id="@+id/mainText"-->
+            <!--android:visibility="visible"-->
+            <!--android:text="My Application" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/mainText"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignWithParentIfMissing="true"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_toRightOf="@+id/icon"-->
+            <!--android:singleLine="true"-->
+            <!--android:ellipsize="marquee"-->
+            <!--android:text="Simple application that shows how to use RelativeLayout" />-->
+<!--</RelativeLayout>-->
+
+<LinearLayout
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/demo_frameLayout"
+        ></FrameLayout>
+    </LinearLayout>

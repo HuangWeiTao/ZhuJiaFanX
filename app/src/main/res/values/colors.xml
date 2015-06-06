@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="radio_fg_checked">#00B2EE</color>
+    <color name="button_bg_normal">#FFFFFF</color>
+    <color name="button_bg_pressed">#ECF0F1</color>
+    <color name="actionbar_bg">#673AB7</color>
+</resources>

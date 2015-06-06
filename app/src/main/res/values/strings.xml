@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">住家饭</string>
+    <string name="username_text">用户名</string>
+    <string name="password_text">密码</string>
+    <string name="confirm_password_text">确认密码</string>
+    <string name="register_text"><u>注册帐号</u></string>
+    <string name="forget_password_text"><u>忘记密码</u></string>
+    <string name="login_text">登录</string>
+    <string name="comment_text">评论</string>
+    <string name="menu_text">菜单</string>
+    <string name="create_text">创建</string>
+    <string name="home_text">主页</string>
+    <string name="friendship_text">收藏</string>
+    <string name="personal_text">我</string>
+    <string name="enter_title_hint">请输入菜名</string>
+    <string name="enter_description_text">菜单描述:</string>
+    <string name="preview_text">预览图:</string>
+    <string name="upload_image_text">上传图片</string>
+    <string name="from_camera_text">相机拍照</string>e
+    <string name="from_gallery_text">图库上传</string>
+    <string name="username_or_password_empty_text">用户名或密码不能为空!</string>
+    <string name="title_activity_dish_detail">DishDetailActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">住家饭</string>
+    <string name="title_activity_get_image">GetImageActivity</string>
+    <string name="title_activity_login">登录</string>
+    <string name="title_activity_register">RegisterActivity</string>
+</resources>

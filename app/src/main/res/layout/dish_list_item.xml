@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:id="@+id/tv_dish_title"/>
+    <GridView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/gv_image_list"
+        android:layout_below="@+id/tv_dish_title"
+        ></GridView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_publish_by"
+        android:layout_below="@id/gv_image_list"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/comment_text"
+        android:id="@+id/tv_comment_text"
+        android:layout_below="@id/gv_image_list"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/tv_publish_by"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@id/tv_comment_text"
+        android:layout_below="@id/gv_image_list"
+        android:id="@+id/tv_comment_count"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gv_image_list"
+        android:layout_alignParentRight="true"
+        android:id="@+id/tv_publish_time"/>
+</RelativeLayout>
