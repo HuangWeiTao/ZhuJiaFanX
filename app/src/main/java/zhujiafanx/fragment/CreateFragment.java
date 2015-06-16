@@ -20,6 +20,7 @@ import java.util.Date;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import butterknife.Optional;
 import zhujiafanx.activity.GetImageActivity;
 import zhujiafanx.adapter.ImageItemAdapter;
@@ -109,12 +110,14 @@ public class CreateFragment extends Fragment {
         ButterKnife.inject(getActivity(),actionBarLayout);
     }
 
-    //@OnClick(R.id.ib_actionbar_cancel)
+    @Optional
+    @OnClick(R.id.ib_actionbar_cancel)
     public void onCancelButtonClick(View v) {
 
     }
 
-    //@OnClick(R.id.ib_actionbar_ok)
+    @Optional
+    @OnClick(R.id.ib_actionbar_ok)
     public void onOKButtonClick(View v) {
 
         //collection all info about dish item and save it
@@ -133,7 +136,8 @@ public class CreateFragment extends Fragment {
         dishClient.SaveDishItem(dishItem);
     }
 
-    //@OnClick(R.id.btn_get_image)
+    @Optional
+    @OnClick(R.id.btn_get_image)
     public void onGetImageButtonClick(View v) {
 
         Intent intent = new Intent(getActivity(), GetImageActivity.class);

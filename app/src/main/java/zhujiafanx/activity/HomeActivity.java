@@ -12,21 +12,27 @@ import android.widget.RadioButton;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.Optional;
 import zhujiafanx.demo.R;
 import zhujiafanx.fragment.CreateFragment;
 import zhujiafanx.fragment.DishFragment;
+import zhujiafanx.fragment.FriendshipFragment;
 
 public class HomeActivity extends ActionBarActivity {
 
+    @Optional
     @InjectView(R.id.rb_create)
     RadioButton createButton;
 
+    @Optional
     @InjectView(R.id.rb_friendship)
     RadioButton friendshipButton;
 
+    @Optional
     @InjectView(R.id.rb_menu)
     RadioButton menuButton;
 
+    @Optional
     @InjectView(R.id.rb_personal)
     RadioButton personalButton;
 
@@ -43,6 +49,7 @@ public class HomeActivity extends ActionBarActivity {
     }
 
 
+    @Optional
     @OnClick(R.id.rb_personal)
     public void onPersonalButtonClick(View v) {
 
@@ -50,6 +57,7 @@ public class HomeActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    @Optional
     @OnClick(R.id.rb_menu)
     public void onMenuButtonClick(View v) {
 
@@ -59,11 +67,16 @@ public class HomeActivity extends ActionBarActivity {
         }
     }
 
+    @Optional
     @OnClick(R.id.rb_friendship)
     public void onFriendshipButtonClick(View v) {
-
+        if(!IsFragmentNeedUpdate(getSupportFragmentManager(),R.id.rb_friendship))
+        {
+            ReplaceWithFragment(FriendshipFragment.newInstance());
+        }
     }
 
+    @Optional
     @OnClick(R.id.rb_create)
     public void onCreateButtonClick(View v) {
 
@@ -91,8 +104,8 @@ public class HomeActivity extends ActionBarActivity {
 
     private void LoadDefaultFragment() {
 
-//        CreateFragment defaultFragment = CreateFragment.newInstance();
-//
-//        ReplaceWithFragment(defaultFragment);
+        DishFragment defaultFragment = DishFragment.newInstance();
+
+        ReplaceWithFragment(defaultFragment);
     }
 }

@@ -27,4 +27,13 @@
     <string name="title_activity_get_image">GetImageActivity</string>
     <string name="title_activity_login">登录</string>
     <string name="title_activity_register">RegisterActivity</string>
+
+    <string name="dish_tang">靓汤</string>
+    <string name="dish_tiandian">甜点</string>
+    <string name="dish_yinliao">饮料</string>
+    <string name="dish_xiaochao">小炒</string>
+    <string name="dish_shucai">蔬菜</string>
+    <string name="dish_zhou">粥</string>
+    <string name="dish_mifan">米饭</string>
+    <string name="dish_yuchi">鱼翅</string>
 </resources>

@@ -11,6 +11,6 @@ public class App extends SugarApp {
     public void onCreate() {
         super.onCreate();
 
-        Injector.INSTANCE.init(new DefaultModule());
+        Injector.INSTANCE.init(new DefaultModule(this));
     }
 }

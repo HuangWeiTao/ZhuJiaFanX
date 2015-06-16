@@ -4,29 +4,34 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
+
 import zhujiafanx.fragment.DishTabFragment;
+import zhujiafanx.rest.DishCatagory;
 
 
 public class DishPagerAdapter extends FragmentPagerAdapter {
 
-    private static final int pageCountConstant = 8;
+    private ArrayList<DishCatagory> dishCatagories;
 
-    public DishPagerAdapter(FragmentManager fm) {
+    public DishPagerAdapter(FragmentManager fm,ArrayList<DishCatagory> dishCatagories) {
         super(fm);
+
+        this.dishCatagories = dishCatagories;
     }
 
     @Override
     public int getCount() {
-        return pageCountConstant;
+        return dishCatagories.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Page "+(position+1);
+        return dishCatagories.get(position).toString();
     }
 
     @Override
     public Fragment getItem(int position) {
-        return DishTabFragment.newInstance((position + 1), "Page # " + (position + 1));
+        return DishTabFragment.newInstance((position + 1), dishCatagories.get(position).toString());
     }
 }

@@ -10,23 +10,27 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import zhujiafanx.adapter.DishItemAdapter;
+import zhujiafanx.app.Injector;
 import zhujiafanx.demo.R;
-import zhujiafanx.model.DishClient;
-import zhujiafanx.model.DishItem;
-import zhujiafanx.model.contract.IDishOperation;
+import zhujiafanx.rest.IDishClient;
+import zhujiafanx.rest.RestDishItem;
 
 public class DishTabFragment extends Fragment {
 
-    private final static String titleConstant = "title";
-    private final static String pageConstant = "page";
-    private final  static int defaultLoadingItemsCountConstant=20;
+    private final static String titleConstant = "tabTitle";
+    private final static String pageConstant = "tabPage";
+    private final static int defaultLoadingItemsCountConstant = 20;
 
     private String title;
-
     private int page;
 
-    private DishItem[] dishItemList;
+    private RestDishItem[] dishItemList;
+
+    @Inject
+    IDishClient dishClient;
 
     public static DishTabFragment newInstance(int page, String title) {
         DishTabFragment fragment = new DishTabFragment();
@@ -43,12 +47,14 @@ public class DishTabFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Injector.INSTANCE.inject(this);
+
         page = getArguments().getInt(pageConstant);
         title = getArguments().getString(titleConstant);
 
         //load data as soon as possible
-        ArrayList<DishItem> arrayList = LoadingDishItems();
-        dishItemList = new DishItem[arrayList.size()];
+        ArrayList<RestDishItem> arrayList = LoadingDishItems();
+        dishItemList = new RestDishItem[arrayList.size()];
         arrayList.toArray(dishItemList);
     }
 
@@ -59,18 +65,18 @@ public class DishTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dish_tab, container, false);
 
         //data bind
-        ListView dishItemListView=(ListView) view.findViewById(R.id.lv_dishList_container);
+        ListView dishItemListView = (ListView) view.findViewById(R.id.lv_dishList_container);
 
-        DishItemAdapter adapter = new DishItemAdapter(getActivity(),R.layout.dish_list_item,dishItemList);
+        DishItemAdapter adapter = new DishItemAdapter(getActivity(), R.layout.dish_list_item, dishItemList);
+
+
 
         dishItemListView.setAdapter(adapter);
 
         return view;
     }
 
-    private ArrayList<DishItem> LoadingDishItems()
-    {
-        IDishOperation dishClient = new DishClient();
-        return dishClient.GetDishItems(page,defaultLoadingItemsCountConstant);
+    private ArrayList<RestDishItem> LoadingDishItems() {
+        return dishClient.GetDishItems(1, defaultLoadingItemsCountConstant);
     }
 }
