@@ -2,7 +2,8 @@ package zhujiafanx.helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
+
+import zhujiafanx.model.contract.LoginResult;
 
 /**
  * Created by Administrator on 2015/6/3.
@@ -22,7 +23,11 @@ public class SessionManager {
     // Shared preferences file name
     private static final String PREF_NAME = "ZhuJiaFanLogin";
 
-    private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
+    private static final String KEY_IS_LOGGEDIN = "LoginStatus";
+
+    private static final String KEY_User_Token="UserToken";
+
+    private static final String KEY_User_Name="UserName";
 
     public SessionManager(Context context) {
         this.context = context;
@@ -30,17 +35,34 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public void setLogin(boolean isLoggedIn) {
+    public void setLogin(LoginResult loginResult) {
 
-        editor.putBoolean(KEY_IS_LOGGEDIN, isLoggedIn);
+        editor.putBoolean(KEY_IS_LOGGEDIN, loginResult.Success);
 
-        // commit changes
+        if(loginResult.Success) {
+            editor.putString(KEY_User_Token, loginResult.Token);
+            editor.putString(KEY_User_Name, loginResult.UserName);
+        }
+        else
+        {
+            editor.remove(KEY_User_Token);
+            editor.remove(KEY_User_Name);
+        }
+
         editor.commit();
-
-        Log.d(TAG, "User login session modified!");
     }
 
     public boolean isLoggedIn(){
         return pref.getBoolean(KEY_IS_LOGGEDIN, false);
+    }
+
+    public String getUserName()
+    {
+        return pref.getString(KEY_User_Name, "");
+    }
+
+    public String getToken()
+    {
+        return pref.getString(KEY_User_Token,"");
     }
 }

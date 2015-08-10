@@ -16,7 +16,7 @@ import zhujiafanx.demo.R;
 /**
  * Created by Administrator on 2015/5/28.
  */
-public class ImageItemAdapter extends BaseAdapter {
+public class ImageItemAdapter extends BaseAdapter{
     private Context context;
     private List<String> list;
 
@@ -35,6 +35,10 @@ public class ImageItemAdapter extends BaseAdapter {
                 .findViewById(R.id.iv_image_item);
 
         //imageView.setImageURI(Uri.parse(info));
+
+        //imageView.setClickable(false);
+        //imageView.setActivated(false);
+        //imageView.setFocusableInTouchMode(false);
 
         Picasso.with(context).load(info).resize(50,50).centerCrop().into(itemView);
 

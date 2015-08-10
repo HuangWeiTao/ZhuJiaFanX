@@ -15,10 +15,12 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import zhujiafanx.app.Injector;
 import zhujiafanx.demo.R;
+import zhujiafanx.model.contract.IOnRegisterCallback;
 import zhujiafanx.model.contract.IUserClient;
 import zhujiafanx.model.contract.RegisterInfo;
+import zhujiafanx.model.contract.RegisterResult;
 
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends Activity implements IOnRegisterCallback {
 
     @InjectView(R.id.et_username)
     EditText et_username;
@@ -42,37 +44,47 @@ public class RegisterActivity extends Activity {
 
         ButterKnife.inject(this);
 
-//        ObjectGraph graph = ObjectGraph.create(new DefaultModule());
-//        graph.inject(this);
-
-        //userClient = graph.get(IUserClient.class);
         Injector.INSTANCE.inject(this);
     }
 
     @OnClick(R.id.btn_register)
     public void OnRegisterButtonClick(View view) {
-        //verify data
-        String username = et_username.getText().toString().trim();
+
+        String email = et_username.getText().toString().trim();
         String password = et_password.getText().toString().trim();
 
-        RegisterInfo registerInfo = new RegisterInfo(username, password);
+        RegisterInfo registerInfo = new RegisterInfo(email, password, password);
 
-        new DatabaseTask().execute(registerInfo);
+        if (registerInfo.IsValid()) {
+            new RegisterTask(this).execute(registerInfo);
+        } else {
+            Toast.makeText(getBaseContext(), registerInfo.GetErrorMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
-    class DatabaseTask extends AsyncTask<RegisterInfo,Integer,Void>
-    {
+    @Override
+    public void OnFinishRegister(RegisterResult result) {
+        if (result.Success) {
+            Toast.makeText(getBaseContext(), "注册成功！", Toast.LENGTH_SHORT).show();
+        } else {
+            String message = "注册出错：" + result.ErrorMessage;
+            Toast.makeText(getBaseContext(), message, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    class RegisterTask extends AsyncTask<RegisterInfo, Integer, Void> {
+
+        private IOnRegisterCallback callback;
+
+        public RegisterTask(IOnRegisterCallback callback) {
+            this.callback = callback;
+        }
+
         @Override
         protected Void doInBackground(RegisterInfo... params) {
-            userClient.Create(params[0]);
+            userClient.Register(params[0], callback);
 
             return null;
         }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            Toast.makeText(getBaseContext(), "注册成功!", Toast.LENGTH_SHORT).show();
-        }
     }
-
 }

@@ -108,7 +108,7 @@ public class GetImageActivity extends Activity {
     {
         String filepath=null;
 
-        String filename= UUID.randomUUID().toString()+".png";
+        String filename= UUID.randomUUID().toString()+".jpg";
 
         try
         {
@@ -124,7 +124,7 @@ public class GetImageActivity extends Activity {
             filepath=dataFile.getPath();
 
             FileOutputStream stream = new FileOutputStream(dataFile,false);
-            bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
         }
         catch(IOException ex)
         {

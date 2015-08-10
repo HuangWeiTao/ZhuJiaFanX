@@ -5,9 +5,14 @@ package zhujiafanx.model.contract;
  */
 public interface IUserClient {
     public User Get(String userName);
+
     public User Get(long id);
-    public void Create(RegisterInfo registerInfo);
+
+    public void Register(RegisterInfo registerInfo, IOnRegisterCallback callback);
+
     public void Update(User user);
+
     public void Delete(long id);
-    public String Login(LoginInfo loginInfo);
+
+    public LoginResult Login(LoginInfo loginInfo);
 }

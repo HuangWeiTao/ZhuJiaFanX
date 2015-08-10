@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.administrator.zhujiafanx"
-        minSdkVersion 14
+        minSdkVersion 18
         targetSdkVersion 8
         versionCode 1
         versionName "1.0"
@@ -18,17 +18,35 @@ android {
         }
     }
     sourceSets {
-        main { res.srcDirs = ['src/main/res', 'src/main/res/value-v19', 'src/main/res/colors'] }
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res/value-v19', 'src/main/res/colors']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
+    compile files('libs/BaiduLBS_Android.jar')
+    //compile 'com.android.support:support-v4:22.2.0'
     compile 'com.jakewharton:butterknife:6.1.0'
     compile 'com.mcxiaoke.volley:library:1.0.15'
     compile 'com.github.satyan:sugar:1.3.1'
     compile 'com.squareup.dagger:dagger:1.2.2'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
     provided 'com.squareup.dagger:dagger-compiler:1.2.2'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile group: 'commons-io', name: 'commons-io', version: '2.0.1'
+    compile 'com.google.code.gson:gson:2.2.4'
+    androidTestCompile 'com.android.support.test:runner:0.2'
+    androidTestCompile 'com.android.support.test:rules:0.2'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
+    androidTestCompile 'com.android.support:support-annotations:22.1.1'
 }
+
+tasks.withType(JavaCompile) { options.encoding = "UTF-8" }

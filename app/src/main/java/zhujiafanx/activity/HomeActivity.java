@@ -64,6 +64,9 @@ public class HomeActivity extends ActionBarActivity {
         if(!IsFragmentNeedUpdate(getSupportFragmentManager(),R.id.rb_menu))
         {
             ReplaceWithFragment(DishFragment.newInstance());
+
+            //reset action bar
+
         }
     }
 

@@ -8,8 +8,10 @@ import org.modelmapper.PropertyMap;
 
 import javax.inject.Inject;
 
+import zhujiafanx.model.contract.IOnRegisterCallback;
 import zhujiafanx.model.contract.IUserClient;
 import zhujiafanx.model.contract.LoginInfo;
+import zhujiafanx.model.contract.LoginResult;
 import zhujiafanx.model.contract.RegisterInfo;
 import zhujiafanx.model.contract.User;
 
@@ -41,8 +43,8 @@ public class SugarUserClient implements IUserClient {
     }
 
     @Override
-    public void Create(RegisterInfo registerInfo) {
-        SugarUser sugarUser = new SugarUser(registerInfo.getUsername(), registerInfo.getPassword());
+    public void Register(RegisterInfo registerInfo, IOnRegisterCallback registerCallback) {
+        SugarUser sugarUser = new SugarUser(registerInfo.getEmail(), registerInfo.getPassword());
 
         sugarUser.save();
     }
@@ -66,15 +68,16 @@ public class SugarUserClient implements IUserClient {
     }
 
     @Override
-    public String Login(LoginInfo loginInfo) {
-        long count = Select.from(SugarUser.class).where(Condition.prop("name").eq(loginInfo.getUsername()), Condition.prop("hashed_pwd").eq(loginInfo.getPassword())).count();
+    public LoginResult Login(LoginInfo loginInfo) {
+        long count = Select.from(SugarUser.class).where(Condition.prop("name").eq(loginInfo.username), Condition.prop("hashed_pwd").eq(loginInfo.password)).count();
 
-        //build token
-        if (count > 0) {
-            return Long.toString(count);
-        } else {
-            return "";
-        }
+//        //build token
+//        if (count > 0) {
+//            return Long.toString(count);
+//        } else {
+//            return "";
+//        }
+        return null;
     }
 
     private ModelMapper GetModelMapper()
