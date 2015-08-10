@@ -61,5 +61,7 @@ public class DishDetailActivity extends ActionBarActivity {
 
         ImageItemAdapter adapter = new ImageItemAdapter(this, dishItem.ImageList);
         lv_imageList.setAdapter(adapter);
+
+        //nothing
     }
 }
