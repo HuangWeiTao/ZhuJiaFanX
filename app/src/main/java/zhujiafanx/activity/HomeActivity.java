@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.Optional;
+import zhujiafanx.control.login.LoginRegisterActivity;
 import zhujiafanx.demo.R;
 import zhujiafanx.fragment.CreateFragment;
 import zhujiafanx.fragment.DishFragment;
@@ -53,7 +54,7 @@ public class HomeActivity extends ActionBarActivity {
     @OnClick(R.id.rb_personal)
     public void onPersonalButtonClick(View v) {
 
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginRegisterActivity.class);
         startActivity(intent);
     }
 

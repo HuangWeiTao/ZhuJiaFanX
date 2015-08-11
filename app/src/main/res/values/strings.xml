@@ -40,4 +40,9 @@
     <string name="dish_zhou">粥</string>
     <string name="dish_mifan">米饭</string>
     <string name="dish_yuchi">鱼翅</string>
+    <string name="title_activity_login_register">LoginRegisterActivity</string>
+    <string name="login_success_text">登录成功!</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

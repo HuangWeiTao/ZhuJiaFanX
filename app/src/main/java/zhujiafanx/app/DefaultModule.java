@@ -15,7 +15,10 @@ import zhujiafanx.rest.IDishClient;
 /**
  * Created by Administrator on 2015/6/5.
  */
-@Module(library = true,injects = { RegisterActivity.class, LoginActivity.class, DishTabFragment.class, DishFragment.class, CreateFragment.class},complete = false)
+@Module(library = true,
+        injects = { RegisterActivity.class, LoginActivity.class, DishTabFragment.class, DishFragment.class, CreateFragment.class},
+        complete = false
+        )
 public class DefaultModule {
 
     private App app;
@@ -38,4 +41,5 @@ public class DefaultModule {
     {
         return new RESTDishClient();
     }
+
 }

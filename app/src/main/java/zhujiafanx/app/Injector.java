@@ -23,7 +23,7 @@ public enum Injector {
         }
 
         // Inject statics
-        objectGraph.injectStatics();
+        //objectGraph.injectStatics();
 
     }
 
@@ -32,6 +32,8 @@ public enum Injector {
         init(rootModule);
         inject(target);
     }
+
+
 
     public void inject(final Object target)
     {
