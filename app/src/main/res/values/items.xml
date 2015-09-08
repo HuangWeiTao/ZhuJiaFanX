@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dishNames">
+   <item></item>
+        <item>香菇炒肉</item>
+        <item>辣子鸡丁</item>
+        <item>广式腊味煲仔饭</item>
+        <item>港式菠萝包</item>
+        <item>干炒牛河做法</item>
+        <item>菠萝咕噜排骨</item>
+        <item>广东鱼肉酿尖椒</item>
+        <item>腐竹白果鸡蛋糖水</item>
+        <item>凉拌广东菜心</item>
+        <item>潮汕海鲜砂锅粥</item>
+        <item>皮蛋瘦肉粥</item>
+        <item>广东鲜虾马蹄盏</item>
+        <item>蒜香腊鸡腿煲仔饭</item>
+        <item>港式奶茶</item>
+        <item>蛤蜊肉砂锅粥</item>
+        <item>清蒸香菜丸子</item>
+        <item>萝卜蒜苗炒肉片</item>
+        <item>盐烤秋刀鱼</item>
+        <item>清蒸罗非鱼</item>
+        <item>美人鱼翅卷</item>
+        <item>全丝烩鱼翅</item>
+        <item>北芪红枣瘦肉汤</item>
+        <item>当归春笋乌鸡汤</item>
+        <item>芝麻枸杞乌鸡汤的做法</item>
+    </string-array>
+    <string-array name="publishers">
+        <item> "好味餐厅"</item>
+        <item>"野味农庄"</item>
+        <item>"靓姨住家菜"</item>
+        <item>"广东老火汤"</item>
+        <item>"正宗广州人口味"</item>
+        <item>"粥粉面汤"</item>
+    </string-array>
+</resources>
