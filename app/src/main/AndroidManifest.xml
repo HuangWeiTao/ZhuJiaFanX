@@ -30,6 +30,7 @@
     <application
         android:name="zhujiafanx.app.App"
         android:allowBackup="true"
+        android:description="@string/app_desc"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <meta-data
@@ -95,6 +96,40 @@
         <activity
             android:name="zhujiafanx.control.login.LoginRegisterActivity"
             android:label="@string/title_activity_login_register" >
+        </activity>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent222222" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="zhujiafanx.activity.FavoritesActivity"
+            android:label="@string/title_activity_favorites" >
+        </activity>
+        <activity
+            android:name="zhujiafanx.activity.cart.CartActivity"
+            android:label="@string/title_activity_cart" >
+        </activity>
+        <activity
+            android:name="zhujiafanx.activity.OrdersActivity"
+            android:label="@string/title_activity_orders" >
+        </activity>
+        <activity
+            android:name="zhujiafanx.activity.CommentsActivity"
+            android:label="@string/title_activity_comments" >
         </activity>
     </application>
 

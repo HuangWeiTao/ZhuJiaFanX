@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="zhujiafanx.activity.HomeActivity">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_search"
+        android:orderInCategory="200"
+        android:title="@string/search_text"
+        android:icon="@drawable/ic_action_search"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_user"
+        android:orderInCategory="300"
+        android:title="@string/user_text"
+        android:icon="@drawable/ic_action_person"
+        app:showAsAction="ifRoom"/>
+</menu>

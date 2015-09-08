@@ -41,6 +41,11 @@ public class App extends SugarApp {
         return objectGraph.plus(modules);
     }
 
+    public static String getAppIdOfQQ()
+    {
+        return "222222";
+    }
+
     public static Object getItem(String key) {
         if (Items.containsKey(key)) {
             return Items.get(key);

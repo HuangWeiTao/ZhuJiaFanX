@@ -69,13 +69,13 @@ public class DishFragment extends Fragment implements BDLocationListener {
         vpPager.setAdapter(adapter);
 
         ActionBar actionBar = ((ActionBarActivity) getActivity()).getSupportActionBar();
-        View actionBarView = setCustomActionBar(actionBar);
+        //View actionBarView = setCustomActionBar(actionBar);
 
-        ib_locationButton = (ImageButton) actionBarView.findViewById(R.id.ib_location);
-        tv_locationText = (TextView) actionBarView.findViewById(R.id.tv_location_text);
+        //ib_locationButton = (ImageButton) actionBarView.findViewById(R.id.ib_location);
+        //tv_locationText = (TextView) actionBarView.findViewById(R.id.tv_location_text);
 
-        ib_locationButton.setOnClickListener(new LocationButtonClickListener(this.mLocationClient, tv_locationText));
-        ib_locationButton.performClick();
+        //ib_locationButton.setOnClickListener(new LocationButtonClickListener(this.mLocationClient, tv_locationText));
+        //ib_locationButton.performClick();
 
         return view;
     }
