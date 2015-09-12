@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
@@ -19,10 +20,12 @@ import zhujiafanx.demo.R;
 public class ImageItemAdapter extends BaseAdapter{
     private Context context;
     private List<String> list;
+    private AbsListView.LayoutParams imgSize;
 
-    public ImageItemAdapter(Context context, List<String> list) {
+    public ImageItemAdapter(Context context, List<String> list,AbsListView.LayoutParams imgSize) {
         this.context = context;
         this.list = list;
+        this.imgSize=imgSize;
     }
 
     @Override
@@ -33,6 +36,7 @@ public class ImageItemAdapter extends BaseAdapter{
 
         ImageView imageView = (ImageView) itemView
                 .findViewById(R.id.iv_image_item);
+        imageView.setLayoutParams(new AbsListView.LayoutParams(imgSize.width,imgSize.height));
 
         //imageView.setImageURI(Uri.parse(info));
 
@@ -40,7 +44,8 @@ public class ImageItemAdapter extends BaseAdapter{
         //imageView.setActivated(false);
         //imageView.setFocusableInTouchMode(false);
 
-        Picasso.with(context).load(info).resize(50,50).centerCrop().into(itemView);
+        Picasso.with(context).load(info).resize(imgSize.width,imgSize.height).centerCrop().into(itemView);
+        //Glide.with(context).load(info).centerCrop().into(imageView);
 
         return itemView;
     }

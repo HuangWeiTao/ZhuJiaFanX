@@ -6,12 +6,16 @@ import com.orm.SugarApp;
 
 import java.util.HashMap;
 
+import dagger.ObjectGraph;
+
 /**
  * Created by Administrator on 2015/6/5.
  */
 public class App extends SugarApp {
 
-    private static App Instance;
+    public static App Instance;
+
+    private ObjectGraph objectGraph;
 
     private static HashMap<String, Object> Items = new HashMap<String, Object>();
 
@@ -24,10 +28,22 @@ public class App extends SugarApp {
         Instance = this;
 
         Injector.INSTANCE.init(new DefaultModule(this));
+
+        objectGraph = ObjectGraph.create(new DefaultModule(this));
+        //objectGraph.inject(this);
     }
 
     public static Context getContext() {
         return Instance.getApplicationContext();
+    }
+
+    public ObjectGraph createScopedGraph(Object... modules) {
+        return objectGraph.plus(modules);
+    }
+
+    public static String getAppIdOfQQ()
+    {
+        return "222222";
     }
 
     public static Object getItem(String key) {

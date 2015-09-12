@@ -4,6 +4,8 @@
     android:orientation="vertical"
     tools:context="zhujiafanx.activity.HomeActivity">
 
+    <include android:id="@+id/main_toolbar"
+        layout="@layout/main_toolbar"/>
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -20,7 +22,7 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/actionbar_bg"
+            android:background="@color/ColorPrimary"
             android:orientation="horizontal">
             <RadioButton
                 android:layout_width="@dimen/radioButton_size"

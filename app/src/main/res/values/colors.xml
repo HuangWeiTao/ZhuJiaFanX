@@ -4,4 +4,7 @@
     <color name="button_bg_normal">#FFFFFF</color>
     <color name="button_bg_pressed">#ECF0F1</color>
     <color name="actionbar_bg">#673AB7</color>
+    <color name="defaultThemeBackground">#26AE90</color>
+    <color name="ColorPrimary">#3367D6</color>
+    <color name="ColorPrimaryDark">#4285F4</color>
 </resources>

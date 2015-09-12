@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -43,7 +44,7 @@ public class DishItemAdapter extends ArrayAdapter<RestDishItem> implements Adapt
 
             convertView = inflater.inflate(resourceId, null);
         }
-
+        
         //find sub-views
         TextView title = (TextView) convertView.findViewById(R.id.tv_dish_title);
         GridView imageList = (GridView) convertView.findViewById(R.id.gv_image_list);
@@ -62,7 +63,7 @@ public class DishItemAdapter extends ArrayAdapter<RestDishItem> implements Adapt
         }
 
         //set Images
-        imageList.setAdapter(new ImageItemAdapter(context, dishItem.ImageList));
+        imageList.setAdapter(new ImageItemAdapter(context, dishItem.ImageList,new AbsListView.LayoutParams(100,100)));
         imageList.setFocusable(false);
         //imageList.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
         imageList.setClickable(false);

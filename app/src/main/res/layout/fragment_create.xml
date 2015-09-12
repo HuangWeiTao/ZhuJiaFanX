@@ -1,110 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#977BD5"
+    android:background="@color/ColorPrimary"
+    android:orientation="vertical"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:orientation="vertical">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingRight="10dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp">
-        <ImageButton
-            android:id="@+id/btn_get_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_photo"
-            android:background="@null"
-            android:layout_alignParentRight="true">
-        </ImageButton>
-        <EditText
-            android:id="@+id/et_edit_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="40dp"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="5dp"
-            android:background="@drawable/round_corner"
-            android:layout_toLeftOf="@id/btn_get_image"
-            android:layout_alignParentLeft="true"
-            android:hint="@string/enter_title_hint" />
-        <!--<TextView-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:id="@+id/tv_text_description"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@id/et_edit_title"-->
-            <!--android:text="@string/enter_description_text" />-->
+        android:orientation="horizontal">
 
-        <!--<EditText-->
-            <!--android:id="@+id/et_edit_description"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@id/tv_text_description"-->
-            <!--android:lines="3" />-->
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="请选择一个目录:"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/et_edit_title"/>
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/et_edit_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/enter_title_hint"
+                android:minHeight="40dp"
+                android:paddingLeft="5dp" />
+        </android.support.design.widget.TextInputLayout>
+
         <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/sp_catagory"
-            android:layout_below="@id/btn_get_image"
-            android:layout_alignParentRight="true">
-        </Spinner>
-    </RelativeLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_edit_description"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:hint="@string/enter_description_text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <FrameLayout
         android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_preview"
+            android:name="zhujiafanx.control.ImageSelectorFragment"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_text_preview"
+        android:padding="10dp"
+        android:background="@drawable/white_border"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/white"
+                android:text="@string/ordering_time_text"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="100dp"
+                android:textSize="15dp"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_ordering_date"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="100dp"
+                android:textSize="15dp"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_ordering_time"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/white"
+                android:text="@string/dish_share_range_text"/>
+            <EditText
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="40dp"
+                android:textSize="20dp"
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_minShareCount"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:textColor="@android:color/white"
+                android:text="@string/to_text"/>
+            <EditText
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:inputType="number"
+                android:layout_width="40dp"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_maxShareCount"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="20dp"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share_text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="@android:color/white"
+                android:text="@string/repast_way_text"/>
+            <zhujiafanx.control.RadioButtonList
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/rg_dineWays">
+            </zhujiafanx.control.RadioButtonList>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btn_get_image"
-            android:textColor="@android:color/background_dark"
-            android:text="@string/preview_text" />
-
-        <ListView
-            android:id="@+id/lv_preview"
-            android:layout_marginTop="5dp"
-            android:layout_width="fill_parent"
+            android:id="@+id/ib_actionbar_cancel"
+            android:background="@drawable/ic_action_cancel"/>
+        <ImageButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/round_corner"
-            android:layout_below="@id/tv_text_preview"></ListView>
-        </LinearLayout>
-
-    <!--<View-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:background="@color/material_blue_grey_800"/>-->
-    <!--<RelativeLayout-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="64dp"-->
-        <!-->-->
-        <!--<requestFocus/>-->
-        <!--<ImageButton-->
-            <!--android:id="@+id/btn_edit_ok"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:background="@drawable/ic_action_cancel" />-->
-
-        <!--<ImageButton-->
-            <!--android:id="@+id/btn_edit_cancel"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:background="@drawable/ic_action_ok" />-->
-    <!--</RelativeLayout>-->
+            android:background="@drawable/ic_action_ok"
+            android:id="@+id/ib_actionbar_ok"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 </LinearLayout>

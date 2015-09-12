@@ -4,7 +4,6 @@ import dagger.Module;
 import dagger.Provides;
 import zhujiafanx.activity.LoginActivity;
 import zhujiafanx.activity.RegisterActivity;
-import zhujiafanx.fragment.CreateFragment;
 import zhujiafanx.fragment.DishFragment;
 import zhujiafanx.fragment.DishTabFragment;
 import zhujiafanx.model.RESTDishClient;
@@ -15,7 +14,10 @@ import zhujiafanx.rest.IDishClient;
 /**
  * Created by Administrator on 2015/6/5.
  */
-@Module(library = true,injects = { RegisterActivity.class, LoginActivity.class, DishTabFragment.class, DishFragment.class, CreateFragment.class},complete = false)
+@Module(library = true,
+        injects = { RegisterActivity.class, LoginActivity.class, DishTabFragment.class, DishFragment.class},
+        complete = false
+        )
 public class DefaultModule {
 
     private App app;
@@ -38,4 +40,5 @@ public class DefaultModule {
     {
         return new RESTDishClient();
     }
+
 }

@@ -7,14 +7,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 
 import zhujiafanx.fragment.DishTabFragment;
-import zhujiafanx.rest.RestDishCatagory;
+import zhujiafanx.rest.RestDishCategory;
 
 
 public class DishPagerAdapter extends FragmentPagerAdapter {
 
-    private ArrayList<RestDishCatagory> dishCatagories;
+    private ArrayList<RestDishCategory> dishCatagories;
 
-    public DishPagerAdapter(FragmentManager fm,ArrayList<RestDishCatagory> dishCatagories) {
+    public DishPagerAdapter(FragmentManager fm,ArrayList<RestDishCategory> dishCatagories) {
         super(fm);
 
         this.dishCatagories = dishCatagories;

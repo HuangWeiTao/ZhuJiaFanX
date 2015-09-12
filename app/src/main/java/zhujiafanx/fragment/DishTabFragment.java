@@ -1,15 +1,20 @@
 package zhujiafanx.fragment;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,6 +22,7 @@ import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import zhujiafanx.activity.DishDetailActivity;
 import zhujiafanx.adapter.DishItemAdapter;
 import zhujiafanx.app.Injector;
@@ -28,7 +34,7 @@ public class DishTabFragment extends Fragment implements AdapterView.OnItemClick
 
     private final static String titleConstant = "tabTitle";
     private final static String pageConstant = "tabPage";
-    private final static int defaultLoadingItemsCountConstant = 10;
+    private final static int defaultLoadingItemsCountConstant = 3;
     public final static String dishItemNameConstant = "dishItem";
 
     private String tabTitle;
@@ -40,6 +46,9 @@ public class DishTabFragment extends Fragment implements AdapterView.OnItemClick
 
     @InjectView(R.id.srl_swipeContainer)
     SwipeRefreshLayout swipeContainer;
+
+    @InjectView(R.id.btn_refresh)
+    FloatingActionButton btn_refresh;
 
     @Inject
     IDishClient dishClient;
@@ -107,6 +116,13 @@ public class DishTabFragment extends Fragment implements AdapterView.OnItemClick
         FetchFollowingItems();
     }
 
+    @OnClick(R.id.btn_refresh)
+    public void onButtonRefresh(View view)
+    {
+        swipeContainer.scrollTo(0, 0);
+        new LoadAsyncTask().execute();
+    }
+
     private void FetchFollowingItems() {
         ArrayList<RestDishItem> newItems = dishClient.GetDishItems(++currentItemPage, defaultLoadingItemsCountConstant);
 
@@ -127,5 +143,99 @@ public class DishTabFragment extends Fragment implements AdapterView.OnItemClick
 
 
         swipeContainer.setRefreshing(false);
+    }
+
+    private ArrayList<RestDishItem> FetchNewerItems()
+    {
+        try {
+            Thread.sleep(1500);
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        ArrayList<RestDishItem> newItems = dishClient.GetDishItems(1, defaultLoadingItemsCountConstant);
+
+        return newItems;
+    }
+
+
+    class LoadAsyncTask extends AsyncTask<Void,Void,Void>
+    {
+        Animation animation;
+
+        ArrayList<RestDishItem> newItems;
+
+        boolean hasNewItems=false;
+        int index=0;
+
+        @Override
+        protected void onPreExecute() {
+            animation= AnimationUtils.loadAnimation(getActivity(), R.anim.rotate_indefinitely);
+
+            btn_refresh.startAnimation(animation);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            try {
+                Thread.sleep(2000);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            newItems = FetchNewerItems();
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+
+            //当前最新item的id
+            RestDishItem firstItem= adapter.getItem(0);
+            if(firstItem!=null) {
+
+
+                if(newItems!=null && newItems.size()!=0)
+                {
+                    if(firstItem.Id!=newItems.get(0).Id)
+                    {
+
+                        hasNewItems=true;
+
+                        //将其余重复的项去掉
+
+                        for (RestDishItem i:newItems) {
+                            if(i.Id!=firstItem.Id)
+                            {
+                                adapter.insert(i,index++);
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(!hasNewItems)
+            {
+                Toast.makeText(getActivity().getApplicationContext(), R.string.no_more_items, Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                //MessageFormat.format("{0}"),String.format("%s")两种格式化字符串的区别
+                Toast.makeText(getActivity().getApplicationContext(), String.format(getString(R.string.refresh_data_number), index),Toast.LENGTH_SHORT).show();
+            }
+
+            animation.cancel();
+            animation.reset();
+        }
     }
 }

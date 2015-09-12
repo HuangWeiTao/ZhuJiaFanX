@@ -32,6 +32,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:recyclerview-v7:22.1.1'
+    compile 'com.android.support:cardview-v7:22.1.1'
     compile files('libs/BaiduLBS_Android.jar')
     //compile 'com.android.support:support-v4:22.2.0'
     compile 'com.jakewharton:butterknife:6.1.0'
@@ -43,10 +45,21 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile group: 'commons-io', name: 'commons-io', version: '2.0.1'
     compile 'com.google.code.gson:gson:2.2.4'
-    androidTestCompile 'com.android.support.test:runner:0.2'
-    androidTestCompile 'com.android.support.test:rules:0.2'
-    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
-    androidTestCompile 'com.android.support:support-annotations:22.1.1'
+    compile 'com.android.support:design:22.2.0'
+
+
+
+    compile 'com.android.support.test:runner:0.2'//为解决建立测试folder的问题，暂时将这4个jar编译到app中
+    compile 'com.android.support.test:rules:0.2'//
+    compile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'//
+    compile 'com.android.support:support-annotations:22.1.1'//
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.android.support:support-v4:19.1.0'
+
+    //androidTestCompile 'com.android.support.test:runner:0.2'
+    //androidTestCompile 'com.android.support.test:rules:0.2'
+    //androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.0'
+    //androidTestCompile 'com.android.support:support-annotations:22.2.1'
 }
 
 tasks.withType(JavaCompile) { options.encoding = "UTF-8" }

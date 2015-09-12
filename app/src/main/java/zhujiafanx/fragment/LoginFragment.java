@@ -33,12 +33,12 @@ public class LoginFragment extends Fragment {
     Button btn_login;
 
     @Optional
-    @InjectView(R.id.tv_register)
-    TextView tv_register;
-
-    @Optional
     @InjectView(R.id.tv_forget_password)
     TextView tv_forget_password;
+
+    @Optional
+    @InjectView(R.id.tv_register)
+    TextView tv_register;
 
     private OnLoginListener loginListener;
 
