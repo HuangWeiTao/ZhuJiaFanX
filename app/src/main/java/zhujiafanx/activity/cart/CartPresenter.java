@@ -10,5 +10,5 @@ public interface CartPresenter {
     boolean RemoveItem(UUID prdouctId);
     boolean UpdateItem(UUID productId, int quantity);
     boolean ClearCart();
-    void Checkout();
+    String Submit();
 }

@@ -7,6 +7,6 @@ import java.util.ArrayList;
  */
 public interface IDishClient {
     public ArrayList<RestDishItem> GetDishItems(int page, int count);
-    public ArrayList<RestDishCatagory>  GetDishCatagory();
+    public ArrayList<RestDishCategory> GetDishCategories();
     public void CreateDishItem(RestDishItem dishItem);
 }

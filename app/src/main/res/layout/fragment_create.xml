@@ -47,14 +47,17 @@
             android:hint="@string/enter_description_text" />
     </android.support.design.widget.TextInputLayout>
 
-    <zhujiafanx.control.ImageSelector
-        android:id="@+id/lv_preview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <FrameLayout
         android:layout_weight="1"
-        android:background="@drawable/white_border"
-        android:numColumns="4">
-    </zhujiafanx.control.ImageSelector>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_preview"
+            android:name="zhujiafanx.control.ImageSelectorFragment"/>
+    </FrameLayout>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginTop="10dp"
@@ -106,6 +109,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_width="40dp"
                 android:textSize="20dp"
+                android:inputType="number"
                 android:textColor="@android:color/white"
                 android:layout_height="wrap_content"
                 android:id="@+id/et_minShareCount"/>
@@ -122,6 +126,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:textSize="20dp"
+                android:inputType="number"
                 android:layout_width="40dp"
                 android:textColor="@android:color/white"
                 android:layout_height="wrap_content"
@@ -145,25 +150,12 @@
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:text="@string/repast_way_text"/>
-            <RadioGroup
+            <zhujiafanx.control.RadioButtonList
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/rg_repastWay">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:layout_height="wrap_content"
-                    android:text="@string/at_home_text"
-                    android:checked="true"
-                    android:layout_marginRight="10dp"
-                    />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="@string/delivery_text"/>
-            </RadioGroup>
+                android:id="@+id/rg_dineWays">
+            </zhujiafanx.control.RadioButtonList>
         </LinearLayout>
     </LinearLayout>
 

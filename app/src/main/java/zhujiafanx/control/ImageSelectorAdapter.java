@@ -20,17 +20,17 @@ import zhujiafanx.utils.StringUtil;
 public class ImageSelectorAdapter extends ArrayAdapter {
 
     private Context context;
-    private ImageSelector selector;
+    private ImageSelectorFragment selector;
     private ArrayList<String> imagePaths;
 
 
-    public ImageSelectorAdapter(ImageSelector selector)
+    public ImageSelectorAdapter(ImageSelectorFragment selector)
     {
-        super(selector.getContext(),selector.getDefaultAddResId(),selector.getImagePath());
+        super(selector.getActivity().getBaseContext(),selector.getDefaultAddResId(),selector.getImagePathList());
 
-        this.context=selector.getContext();
+        this.context=selector.getActivity().getBaseContext();
         this.selector=selector;
-        this.imagePaths=selector.getImagePath();
+        this.imagePaths=selector.getImagePathList();
     }
 
     @Override
@@ -52,8 +52,8 @@ public class ImageSelectorAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Log.d("imageselector","getView");
         ImageView image=new ImageView(context);
-        //如何得到列的高度?
-        image.setLayoutParams(new AbsListView.LayoutParams(selector.getColumnWidth(), selector.getColumnWidth()));
+
+        image.setLayoutParams(new AbsListView.LayoutParams(selector.getColumnWidth(), selector.getColumnHeight()));
         if(!StringUtil.isInt(imagePaths.get(position))) {
 
             Glide.with(context)

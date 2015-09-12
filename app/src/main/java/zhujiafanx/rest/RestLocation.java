@@ -11,5 +11,5 @@ public class RestLocation implements Serializable {
 
     public double Lontitude;
 
-    public String Address="";
+    public String Address;
 }

@@ -180,7 +180,7 @@ public class CartActivity extends BaseActivity implements CartView {
     @OnClick(R.id.cart_checkout)
     public void onCartCheckout(View v)
     {
-        cartPresenter.Checkout();
+        cartPresenter.Submit();
     }
 
     public class CartLoadingAsyncTask extends AsyncTask<Void,Void,Cart>

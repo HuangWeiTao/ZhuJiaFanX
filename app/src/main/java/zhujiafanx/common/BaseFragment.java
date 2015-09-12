@@ -15,7 +15,8 @@ public abstract class BaseFragment extends Fragment {
 
     private ObjectGraph objectGraph;
 
-    @Override public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         if (getModules() != null) {
@@ -24,7 +25,8 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    @Override public void onDestroy() {
+    @Override
+    public void onDestroy() {
         super.onDestroy();
         objectGraph = null;
     }

@@ -33,7 +33,7 @@ import retrofit.mime.TypedString;
 import zhujiafanx.app.App;
 import zhujiafanx.helper.SessionManager;
 import zhujiafanx.rest.IDishClient;
-import zhujiafanx.rest.RestDishCatagory;
+import zhujiafanx.rest.RestDishCategory;
 import zhujiafanx.rest.RestDishItem;
 import zhujiafanx.rest.RestLocation;
 
@@ -68,9 +68,9 @@ public class RESTDishClient implements IDishClient {
     }
 
     @Override
-    public ArrayList<RestDishCatagory> GetDishCatagory() {
+    public ArrayList<RestDishCategory> GetDishCategories() {
 
-        ArrayList<RestDishCatagory> catagories = dishService.GetDishCatagories();
+        ArrayList<RestDishCategory> catagories = dishService.GetDishCatagories();
 
         return catagories;
     }
@@ -90,7 +90,7 @@ public class RESTDishClient implements IDishClient {
 interface IDishService
 {
     @GET("/dish/catagory/list")
-    ArrayList<RestDishCatagory> GetDishCatagories();
+    ArrayList<RestDishCategory> GetDishCatagories();
 
     @GET("/dish/item/list")
     ArrayList<RestDishItem> GetDishItems(@Query("page") int page, @Query("count") int count);
@@ -167,13 +167,13 @@ class DishItemDeserializer implements JsonDeserializer<RestDishItem>
             dishItem.PublisherId=UUID.fromString(json.getAsJsonObject().get("PublisherId").getAsString());
             dishItem.From=json.getAsJsonObject().get("Publisher").getAsString();
 
-            dishItem.Catagory= new RestDishCatagory();
-            JsonObject catagory = json.getAsJsonObject().get("Catagory").getAsJsonObject();
-            dishItem.Catagory.Id=catagory.get("Id").getAsString();
-            dishItem.Catagory.Name=catagory.get("Name").getAsString();
-            dishItem.Catagory.Description=catagory.get("Description").getAsString();
+            //从服务器返回的"Catagory"有拼写错误，不能修改这里的Catagory字符串
+            JsonObject category = json.getAsJsonObject().get("Catagory").getAsJsonObject();
+            dishItem.Category.Id=category.get("Id").getAsString();
+            dishItem.Category.Name=category.get("Name").getAsString();
+            dishItem.Category.Description=category.get("Description").getAsString();
 
-            dishItem.ImageList=new ArrayList<String>();
+            //dishItem.ImageList=new ArrayList<String>();
             JsonArray imageList=json.getAsJsonObject().get("Images").getAsJsonArray();
 
 

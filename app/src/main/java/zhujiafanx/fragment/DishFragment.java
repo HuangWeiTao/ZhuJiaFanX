@@ -65,7 +65,7 @@ public class DishFragment extends Fragment implements BDLocationListener {
         View view = inflater.inflate(R.layout.fragment_dish, container, false);
 
         vpPager = (ViewPager) view.findViewById(R.id.vp_pager);
-        adapter = new DishPagerAdapter(getActivity().getSupportFragmentManager(), dishClient.GetDishCatagory());//getFragmentManager();
+        adapter = new DishPagerAdapter(getActivity().getSupportFragmentManager(), dishClient.GetDishCategories());//getFragmentManager();
         vpPager.setAdapter(adapter);
 
         ActionBar actionBar = ((ActionBarActivity) getActivity()).getSupportActionBar();

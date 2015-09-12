@@ -1,4 +1,4 @@
-package zhujiafanx.activity;
+package zhujiafanx.activity.order;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

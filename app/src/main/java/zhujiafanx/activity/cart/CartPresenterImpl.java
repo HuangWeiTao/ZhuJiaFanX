@@ -38,7 +38,7 @@ public class CartPresenterImpl implements CartPresenter {
     }
 
     @Override
-    public void Checkout() {
+    public String Submit() {
         //检查每一行中的可编辑字段的改动,然后再更新shopping cart字段和总计字段
 
         boolean result = cartService.Checkout();
@@ -52,6 +52,8 @@ public class CartPresenterImpl implements CartPresenter {
             ErrorMessage error=new ErrorMessage("","");
             cartView.CheckoutFail(error);
         }
+
+        return null;
 
     }
 

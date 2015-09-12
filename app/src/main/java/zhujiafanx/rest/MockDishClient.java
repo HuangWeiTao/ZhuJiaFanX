@@ -31,7 +31,7 @@ public class MockDishClient implements IDishClient {
             item.CommentCount = RandomHelper.GetRandomInt(20, 400);
             item.From = GetRandomPublisher();
             item.Id = UUID.randomUUID();
-            item.ImageList = GetRandomImageList();
+            //item.ImageList = GetRandomImageList();
             item.PublishedDate = GetRandomDate(-7, 0);
             item.Title = i + ". " + GetRandomDishItemName();
 
@@ -43,7 +43,7 @@ public class MockDishClient implements IDishClient {
     }
 
     @Override
-    public ArrayList<RestDishCatagory> GetDishCatagory() {
+    public ArrayList<RestDishCategory> GetDishCategories() {
 //        ArrayList<DishCatagory> catagories = new ArrayList<DishCatagory>();
 //
 //        for(DishCatagory catagory : DishCatagory.values())

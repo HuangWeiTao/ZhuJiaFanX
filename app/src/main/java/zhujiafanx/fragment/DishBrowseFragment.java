@@ -137,10 +137,11 @@ public class DishBrowseFragment extends BaseFragment implements IDishBrowseView,
     @Override
     public void ShowNetworkError() {
         Log.i("test", "show network error1");
-        if (getView() != null) {
-            Log.i("test", "show network error2");
-            Snackbar.make(getView(), R.string.network_error_tip, Snackbar.LENGTH_SHORT).show();
-        }
+//        if (getView() != null) {
+//            Log.i("test", "show network error2");
+//            Snackbar.make(getView(), R.string.network_error_tip, Snackbar.LENGTH_SHORT).show();
+//        }
+        //Snackbar.make(getActivity(),R.string.network_error_tip,Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

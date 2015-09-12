@@ -17,9 +17,11 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.Optional;
+import zhujiafanx.common.BaseFragment;
 import zhujiafanx.control.login.PhoneRegisterFragment;
 import zhujiafanx.demo.R;
-import zhujiafanx.fragment.CreateFragment;
+import zhujiafanx.fragment.create.DishCreateFragment;
+import zhujiafanx.fragment.MenuFragment;
 import zhujiafanx.fragment.PageContainerFragment;
 import zhujiafanx.fragment.PersonalFragment;
 
@@ -113,11 +115,21 @@ public class HomeActivity extends ActionBarActivity {
     }
 
     @Optional
+    @OnClick(R.id.rb_favorite)
+    public void onFavoriteButtonClick(View v)
+    {
+        if (!IsFragmentNeedUpdate(getSupportFragmentManager(), R.id.rb_favorite)) {
+            ReplaceWithFragment(new MenuFragment(),"MenuFragment");
+        }
+    }
+
+    @Optional
     @OnClick(R.id.rb_create)
     public void onCreateButtonClick(View v) {
 
         if (!IsFragmentNeedUpdate(getSupportFragmentManager(), R.id.rb_create)) {
-            ReplaceWithFragment(CreateFragment.newInstance(),CreateFragment.TAG);
+            BaseFragment fragment = DishCreateFragment.newInstance();
+            ReplaceWithFragment(fragment, DishCreateFragment.TAG);
         }
     }
 

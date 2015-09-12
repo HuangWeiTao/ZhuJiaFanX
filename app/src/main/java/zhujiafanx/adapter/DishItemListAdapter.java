@@ -18,7 +18,7 @@ import butterknife.InjectView;
 import zhujiafanx.app.App;
 import zhujiafanx.demo.R;
 import zhujiafanx.rest.RestDishItem;
-import zhujiafanx.utils.DateExtension;
+import zhujiafanx.utils.DateTimeUtil;
 
 /**
  * Created by Administrator on 2015/8/22.
@@ -124,7 +124,7 @@ public class DishItemListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ItemViewHolder itemHolder = (ItemViewHolder) holder;
 
             itemHolder.tv_dishName.setText(dataSet.get(position).Title);
-            itemHolder.tv_publishTime.setText(DateExtension.ConvertToString(dataSet.get(position).PublishedDate));
+            itemHolder.tv_publishTime.setText(DateTimeUtil.ConvertToDateAndTimeString(dataSet.get(position).PublishedDate));
 
             itemHolder.ll_imageList.removeAllViews();
             for (String uri : dataSet.get(position).ImageList) {
